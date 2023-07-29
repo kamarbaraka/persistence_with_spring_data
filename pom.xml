@@ -39,6 +39,14 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>3.0.0-alpha1</version>
+            <type>pom</type>
+        </dependency>
+
     </dependencies>
 
 </project>

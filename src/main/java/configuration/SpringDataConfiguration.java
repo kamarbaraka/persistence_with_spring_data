@@ -1,5 +1,6 @@
 package configuration;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -20,9 +21,6 @@ import java.util.Properties;
 
 @EnableJpaRepositories("repositories")
 public class SpringDataConfiguration {
-
-    private DataSource dataSource;
-    private JpaVendorAdapter vendorAdapter;
 
     /**
      * construct a datasource bean.
@@ -45,7 +43,7 @@ public class SpringDataConfiguration {
         /*set the password*/
         driverManagerDataSource.setPassword("Samsroot#mysql");
 
-        this.dataSource = driverManagerDataSource;
+//        this.dataSource = driverManagerDataSource;
 
         /*return the configured datasource*/
         return driverManagerDataSource;
@@ -80,13 +78,15 @@ public class SpringDataConfiguration {
         /*allow logging of sql queries during execution*/
         jpaVendorAdapter.setShowSql(true);
 
-        this.vendorAdapter = jpaVendorAdapter;
+//        this.vendorAdapter = jpaVendorAdapter;
 
         /*return the configured jpa vendor adapter*/
         return jpaVendorAdapter;
 
     }
 
+    private final DataSource dataSource = dataSource();
+    private final JpaVendorAdapter vendorAdapter = jpaVendorAdapter();
     /**
      * construct a local container entity factory bean, to produce entity manager factory.
      * @return the constructed local container entity factory bean*/
